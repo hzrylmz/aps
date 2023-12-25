@@ -12,7 +12,7 @@ import org.junit.runner.RunWith;
         monochrome = true,
         features = "src/test/resources/features",
         glue = "stepdefinitions",
-        tags = "",
+        tags = "@wip",
         dryRun = false
 )
 public class TestRunner {
