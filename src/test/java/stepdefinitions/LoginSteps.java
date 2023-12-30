@@ -96,4 +96,9 @@ public class LoginSteps extends TestBase {
     public void sifreAlaniSilinir() {
         loginPage.sifre.clear();
     }
+
+    @And("Doktor secilir -ilyas tarik katirci")
+    public void doktorSecilirIlyasTarikKatirci() {
+        provizyonIslemleri.doktor_ilyasTarikKatirci.click();
+    }
 }

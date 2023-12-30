@@ -35,6 +35,15 @@ public class ProvizyonIslemleri {
     @FindBy(xpath = "//div[@class='container dropdown-menu show']/div[@class='container']/div[contains(.,'ALİ KEMAL ULAŞ')]")
     public WebElement doktor_aliKemalUlas;
 
+    @FindBy(xpath = "//div[@class='container dropdown-menu show']/div[@class='container']/div[contains(.,'SEHER SARI')]")
+    public WebElement doktor_seherSari;
+
+    @FindBy(xpath = "//div[@class='container dropdown-menu show']//div[26]")
+    public WebElement doktor_ilyasTarikKatirci;
+
+    @FindBy(xpath = "//div[@class='container dropdown-menu show']//div[3]")
+    public WebElement doktor_nezihAkgun;
+
     @FindBy(xpath = "//textarea[@id='complaintDesc_input']")
     public WebElement sikayet_metin_alani;
 
@@ -43,6 +52,9 @@ public class ProvizyonIslemleri {
 
     @FindBy(xpath = "//div[@class='ngb-dp-day ngb-dp-today ng-star-inserted']")
     public WebElement bugununTarihi;
+
+    @FindBy(xpath = "//input[@id='lastMenstrualDate_input']")
+    public WebElement sonAdetTarihi;
 
     @FindBy(xpath = "//input[@id='icd10_input']")
     public WebElement taniGirisi_input;

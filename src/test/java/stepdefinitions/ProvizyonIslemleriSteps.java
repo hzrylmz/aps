@@ -135,19 +135,19 @@ public class ProvizyonIslemleriSteps extends TestBase {
     @And("Asi-İlac Adi Ara butonuna tiklanir")
     public void asiIlacAdiAraButonunaTiklanir() {
         provizyonIslemleri.asi_ilacAdi_islemKalemi_araBtn.click();
-        ReusableMethods.bekle(1);
+        ReusableMethods.bekle(2);
     }
 
     @And("Arama sonucu gelen ekrana ilac adet bilgisi girilir")
     public void aramaSonucuGelenEkranaIlacAdetBilgisiGirilir() {
         provizyonIslemleri.asi_ilac_adet.sendKeys("2");
-        ReusableMethods.bekle(1);
+        ReusableMethods.bekle(2);
     }
 
     @And("Ilac adedi eklemek icin Ekle butonuna tiklanir")
     public void ilacAdediEklemekIcinEkleButonunaTiklanir() {
         provizyonIslemleri.ilac_adedi_islemKalemi_Ekle.click();
-        ReusableMethods.bekle(1);
+        ReusableMethods.bekle(2);
     }
 
 
@@ -155,13 +155,13 @@ public class ProvizyonIslemleriSteps extends TestBase {
     public void sayfaIlgiliKaydetElementineKaydirilir() {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getDriver();
         jsExecutor.executeScript("arguments[0].scrollIntoView();", provizyonIslemleri.islemKalemi_KaydetBtn);
-        ReusableMethods.bekle(1);
+        ReusableMethods.bekle(2);
     }
 
     @When("Kaydet butonuna tiklandiginda")
     public void kaydetButonunaTiklandiginda() {
         provizyonIslemleri.islemKalemi_KaydetBtn.click();
-        ReusableMethods.bekle(1);
+        ReusableMethods.bekle(2);
     }
 
     @Then("Ret statusunde hata mesaji alindigi gorulur")
@@ -591,4 +591,6 @@ public class ProvizyonIslemleriSteps extends TestBase {
         provizyonIslemleri.asi_ilacAdi_input.sendKeys("coraspin");
         ReusableMethods.bekle(1);
     }
+
+
 }

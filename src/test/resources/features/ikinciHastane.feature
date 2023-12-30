@@ -54,7 +54,7 @@ Feature: İkinci Hastane Kontrolleri
       And Yeni Provizyon Talebi butonuna tiklanir
       And Arama Cubuguna TCKN girisi yapilir - Ugur Ahmet
       And Arama Kriterleri ekranindaki Ara butonuna tiklanir
-      And Police listesinden -grup saglik sigortasi- olan police secilir
+      And Police listesinden ilk siradaki police icin Devam butonuna tiklanir
       And SGK tercihi -Yok- olarak degistirilir
       Then -Sgk kullanmadan devam ediyorsunuz Onayliyor musunuz- mesajinin ciktigi gorulur
       And Sgk kullanmadan devam ediyorsunuz Onayliyor musunuz- mesaji EVET secilir
@@ -85,7 +85,7 @@ Feature: İkinci Hastane Kontrolleri
       And Yeni Provizyon Talebi butonuna tiklanir
       And Arama Cubuguna TCKN girisi yapilir - Ugur Ahmet
       And Arama Kriterleri ekranindaki Ara butonuna tiklanir
-      And Police listesinden -grup saglik sigortasi- olan police secilir
+      And Police listesinden ilk siradaki police icin Devam butonuna tiklanir
       And SGK tercihi -Yok- olarak degistirilir
       Then -Sgk kullanmadan devam ediyorsunuz Onayliyor musunuz- mesajinin ciktigi gorulur
       And Sgk kullanmadan devam ediyorsunuz Onayliyor musunuz- mesaji EVET secilir
@@ -117,7 +117,7 @@ Feature: İkinci Hastane Kontrolleri
       And Yeni Provizyon Talebi butonuna tiklanir
       And Arama Cubuguna TCKN girisi yapilir - Ugur Ahmet
       And Arama Kriterleri ekranindaki Ara butonuna tiklanir
-      And Police listesinden -grup saglik sigortasi- olan police secilir
+      And Police listesinden ilk siradaki police icin Devam butonuna tiklanir
       And SGK tercihi -Yok- olarak degistirilir
       Then -Sgk kullanmadan devam ediyorsunuz Onayliyor musunuz- mesajinin ciktigi gorulur
       And Sgk kullanmadan devam ediyorsunuz Onayliyor musunuz- mesaji EVET secilir
@@ -151,7 +151,7 @@ Feature: İkinci Hastane Kontrolleri
       And Yeni Provizyon Talebi butonuna tiklanir
       And Arama Cubuguna TCKN girisi yapilir - Ugur Ahmet
       And Arama Kriterleri ekranindaki Ara butonuna tiklanir
-      And Police listesinden -grup saglik sigortasi- olan police secilir
+      And Police listesinden ilk siradaki police icin Devam butonuna tiklanir
       And SGK tercihi -Yok- olarak degistirilir
       Then -Sgk kullanmadan devam ediyorsunuz Onayliyor musunuz- mesajinin ciktigi gorulur
       And Sgk kullanmadan devam ediyorsunuz Onayliyor musunuz- mesaji EVET secilir
@@ -270,6 +270,140 @@ Feature: İkinci Hastane Kontrolleri
       And İslem Kalemi Ara butonuna tiklanir
       And Ilac adedi eklemek icin Ekle butonuna tiklanir
       Then Hata almadan eklenebildigi gorulur
+
+
+    Scenario: TC-55) 0-16 ve 0-10 Yas Arasi Kadin Gebelik
+      And Provizyon Islemleri butonuna tiklanir
+      And Yeni Provizyon Talebi butonuna tiklanir
+      And Arama Cubuguna TCKN girisi yapilir - Ecem Koc
+      And Arama Kriterleri ekranindaki Ara butonuna tiklanir
+      And Police listesinden ilk siradaki police icin Devam butonuna tiklanir
+      And Doktor Secimi icin sec dropdown ina tiklanir - Medula
+      And Doktor secilir - Seher Sari
+      And Doktor Secimi Sec butonuna tiklanir
+      And Sayfa asagi kaydirilir -Adli Vaka-Evet butonuna
+      And Sikayet alanina metin girisi yapilir
+      And Tani Girisi alanina kod girilir- Gebelik
+      And Tani Kodu- Ekle butonuna tiklanir
+      And Son Adet Tarihi islem gununun iki ay oncesi secilir
+      And Sayfa asagi kaydirilir
+      And Tani Girisi- Kaydet butonuna tiklanir
+      And İslem Kalem Alanina metin girilir - vitamin D
+      And İslem Kalemi Ara butonuna tiklanir
+      And Ilac adedi eklemek icin Ekle butonuna tiklanir
+      And Sayfa ilgili Kaydet elementine kaydirilir
+      When Kaydet butonuna tiklandiginda
+      And Sayfa ilgili Provizyon Formu Bas elementine kaydirilir
+      And Ret mesajinin -Sifir onalti yas sigortalida gebelik tanisi ile onay alinamaz- statu aciklamasinin alindigi gorulur
+
+
+    Scenario: TC-56) 18 yas ustu kisiler icin cocuk muayenesi onayi
+      And Provizyon Islemleri butonuna tiklanir
+      And Yeni Provizyon Talebi butonuna tiklanir
+      And Arama Cubuguna TCKN girisi yapilir - Ugur Ahmet
+      And Arama Kriterleri ekranindaki Ara butonuna tiklanir
+      And Police listesinden ilk siradaki police icin Devam butonuna tiklanir
+      And Doktor Secimi icin sec dropdown ina tiklanir - Medula
+      And Doktor secilir -Nezih Akgun
+      And Doktor Secimi Sec butonuna tiklanir
+      And Sayfa asagi kaydirilir -Adli Vaka-Evet butonuna
+      And Sikayet alanina metin girisi yapilir
+      And Sikayet Baslangic Tarihi secimi yapilir
+      And Tani Girisi alanina kod girilir- Akut larengofarenjit
+      And Tani Kodu- Ekle butonuna tiklanir
+      And Sayfa asagi kaydirilir
+      And Tani Girisi- Kaydet butonuna tiklanir
+      And İslem Kalem Alanina metin girilir - Cocuk kardiolojisi muayenesi
+      And İslem Kalemi Ara butonuna tiklanir
+      And Ilac adedi eklemek icin Ekle butonuna tiklanir
+      And Sayfa ilgili Kaydet elementine kaydirilir
+      When Kaydet butonuna tiklandiginda
+      And Sayfa ilgili Provizyon Formu Bas elementine kaydirilir
+      Then RET mesajinin -Yetiskin kisiler icin cocuk hastaliklari branslari kapsam disidir- oldugu gorulur
+
+
+    Scenario: TC-57) AT olmadigi icin OTSPlus a yonlendirmesi
+      And Provizyon Islemleri butonuna tiklanir
+      And Yeni Provizyon Talebi butonuna tiklanir
+      And Arama Cubuguna TCKN girisi yapilir - Ugur Ahmet
+      And Arama Kriterleri ekranindaki Ara butonuna tiklanir
+      And Police listesinden ilk siradaki police icin Devam butonuna tiklanir
+      And Doktor Secimi icin sec dropdown ina tiklanir - Medula
+      And Doktor secilir - Nalan Sarac
+      And Doktor Secimi Sec butonuna tiklanir
+      And Sayfa asagi kaydirilir -Adli Vaka-Evet butonuna
+      And Sikayet alanina metin girisi yapilir
+      And Sikayet Baslangic Tarihi secimi yapilir
+      And Tani Girisi alanina kod girilir- Ameliyat Yarasinin acilmasi baska yerde siniflanmamis
+      And Tani Kodu- Ekle butonuna tiklanir
+      And Sayfa asagi kaydirilir
+      And Tani Girisi- Kaydet butonuna tiklanir
+      And İslem Kalem Alanina metin girilir - Apendiks, insidental (asil ameliyata ek), patolojik inceleme
+      And İslem Kalemi Ara butonuna tiklanir
+      And Ilac adedi eklemek icin Ekle butonuna tiklanir
+      And Sayfa ilgili Kaydet elementine kaydirilir
+      When Kaydet butonuna tiklandiginda
+      And Sayfa ilgili Provizyon Formu Bas elementine kaydirilir
+      Then RET mesajinin -Ilgili islem kalemi icin OTS Plus uzerinden basvuru yapmaniz gerekmektedir- oldugu gorulur
+
+
+    Scenario: TC-58) Fizik Tedavi Kurali
+      And Provizyon Islemleri butonuna tiklanir
+      And Yeni Provizyon Talebi butonuna tiklanir
+      And Arama Cubuguna TCKN girisi yapilir - Ugur Ahmet
+      And Arama Kriterleri ekranindaki Ara butonuna tiklanir
+      And Police listesinden ilk siradaki police icin Devam butonuna tiklanir
+      And Doktor Secimi icin sec dropdown ina tiklanir - Medula
+      And Doktor secilir -ilyas tarik katirci
+      And Doktor Secimi Sec butonuna tiklanir
+      And Sayfa asagi kaydirilir -Adli Vaka-Evet butonuna
+      And Sikayet alanina metin girisi yapilir
+      And Sikayet Baslangic Tarihi secimi yapilir
+      And Tani Girisi alanina kod girilir- Ameliyat Yarasinin acilmasi baska yerde siniflanmamis
+      And Tani Kodu- Ekle butonuna tiklanir
+      And Sayfa asagi kaydirilir
+      And Tani Girisi- Kaydet butonuna tiklanir
+      And İslem Kalem Alanina metin girilir - Fizik tedavi ve rehabilitasyon A grubunda yer alan hastaliklar
+      And İslem Kalemi Ara butonuna tiklanir
+      And Ilac adedi eklemek icin Ekle butonuna tiklanir
+      And Sayfa ilgili Kaydet elementine kaydirilir
+      When Kaydet butonuna tiklandiginda
+      And Sayfa ilgili Provizyon Formu Bas elementine kaydirilir
+      Then RET mesajinin -Fizik Tedavi talepleriniz icin OTS PLUS uzerinden basvuru yaparak ilerleyiniz.- oldugu gorulur
+
+  @wip
+    Scenario: TC-59) Islem Basi Limit Kontrolu
+      And Provizyon Islemleri butonuna tiklanir
+      And Yeni Provizyon Talebi butonuna tiklanir
+      And Arama Cubuguna TCKN girisi yapilir - Ugur Ahmet
+      And Arama Kriterleri ekranindaki Ara butonuna tiklanir
+      And Police listesinden ilk siradaki police icin Devam butonuna tiklanir
+      And Doktor Secimi icin sec dropdown ina tiklanir - Medula
+      And Doktor secilir -ilyas tarik katirci
+      And Doktor Secimi Sec butonuna tiklanir
+      And Sayfa asagi kaydirilir -Adli Vaka-Evet butonuna
+      And Sikayet alanina metin girisi yapilir
+      And Sikayet Baslangic Tarihi secimi yapilir
+      And Tani Girisi alanina kod girilir - Kalp hastaliklarinin diger formlari
+      And Tani Kodu- Ekle butonuna tiklanir
+      And Sayfa asagi kaydirilir
+      And Tani Girisi- Kaydet butonuna tiklanir
+      And Aradigimi Bulamadim butonuna tiklanir
+      And Detayli İslem Kalemi Arama ekranindaki İslem Kalem Adi alanina metin girisi yapilir- (SAG KALP KATETERIZASYONU)
+      And Detayli İslem Kalemi Arama ekranindaki Ara butonuna tiklanir
+      And Detayli İslem Kalemi Arama ekranindaki ilk sonuc Ekle butonuna tiklanir
+      And Sayfa ilgili Kaydet elementine kaydirilir
+      And Eklenen İslem Kalemi Listesi - Aciklama dropdown ina tiklanir
+      And Eklenen İslem Kalemi Listesi- Aciklama dropdown- SGK secimi yapilir
+      And Eklene İslem Kalemi Listesi- Talep Edilen Tutar alani degistirilir
+      And Eklenen İslem Kalemi Listesi - Guncelle butonuna tiklanir
+      When Kaydet butonuna tiklandiginda
+      And Sayfa ilgili Provizyon Formu Bas elementine kaydirilir
+      Then Ekrana -Ilgili talep icin Provizyon Merkezi ile gorusulmelidir. Secilen islem kalemi icin provizyon merkezi ile gorusulmelidir.- mesajinin verildigi gorulur
+
+
+
+
 
 
 

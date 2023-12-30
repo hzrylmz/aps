@@ -49,6 +49,12 @@ public class IkinciHastane {
     @FindBy(xpath = "//input[@name='chcBox']")
     public WebElement eklenen_islem_kalemi_listesi_ilkKayit;
 
+    @FindBy(xpath = "//td[@id='thRULEHCDESC']")
+    public WebElement statuAciklamasi;
+
+    @FindBy(xpath = "//input[@id='thAddedItemRequestedPrice0_numericinput']")
+    public WebElement eklenen_islem_kalemi_listesi_talepEdilenTutar;
+
 
 
 

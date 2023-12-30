@@ -238,4 +238,113 @@ public class IkinciHastaneSteps extends TestBase {
     public void hataAlmadanEklenebildigiGorulur() {
         ikinciHastane.eklenen_islem_kalemi_listesi_ilkKayit.isDisplayed();
     }
+
+    @And("Arama Cubuguna TCKN girisi yapilir - Ecem Koc")
+    public void aramaCubugunaTCKNGirisiYapilirEcemKoc() {
+        homePage.aramaKriterleri_input.sendKeys(ConfigReader.getProperty("ecemKocTCKN"));
+        ReusableMethods.bekle(1);
+    }
+
+    @And("Doktor secilir - Seher Sari")
+    public void doktorSecilirSeherSari() {
+        provizyonIslemleri.doktor_seherSari.click();
+    }
+
+    @And("Son Adet Tarihi islem gununun iki ay oncesi secilir")
+    public void sonAdetTarihiIslemGunununIkiAyOncesiSecilir() {
+        provizyonIslemleri.sonAdetTarihi.sendKeys("10/10/2023");
+        ReusableMethods.bekle(1);
+    }
+
+    @And("Ret mesajinin -Sifir onalti yas sigortalida gebelik tanisi ile onay alinamaz- statu aciklamasinin alindigi gorulur")
+    public void retMesajininSifirOnaltiYasSigortalidaGebelikTanisiIleOnayAlinamazStatuAciklamasininAlindigiGorulur() {
+        String actualText = ikinciHastane.statuAciklamasi.getText();
+
+        Assert.assertTrue(actualText.contains("0-16 Yaş sigortalıda gebelik tanısı ile onay alınamaz."));
+        ReusableMethods.bekle(2);
+    }
+
+    @And("Doktor secilir -Nezih Akgun")
+    public void doktorSecilirNezihAkgun() {
+        provizyonIslemleri.doktor_nezihAkgun.click();
+    }
+
+    @And("İslem Kalem Alanina metin girilir - Cocuk kardiolojisi muayenesi")
+    public void islemKalemAlaninaMetinGirilirCocukKardiolojisiMuayenesi() {
+        provizyonIslemleri.islemKalemAdi_input.sendKeys("Çocuk kardiolojisi muayenesi");
+        ReusableMethods.bekle(1);
+    }
+
+    @Then("RET mesajinin -Yetiskin kisiler icin cocuk hastaliklari branslari kapsam disidir- oldugu gorulur")
+    public void retMesajininYetiskinKisilerIcinCocukHastaliklariBranslariKapsamDisidirOlduguGorulur() {
+        String actualText = ikinciHastane.statuAciklamasi.getText();
+
+        Assert.assertTrue(actualText.contains("Yetişkin kişiler için çocuk hastalıkları branşları kapsam dışıdır"));
+        ReusableMethods.bekle(2);
+    }
+
+    @And("Tani Girisi alanina kod girilir- Ameliyat Yarasinin acilmasi baska yerde siniflanmamis")
+    public void taniGirisiAlaninaKodGirilirAmeliyatYarasininAcilmasiBaskaYerdeSiniflanmamis() {
+        provizyonIslemleri.taniGirisi_input.sendKeys("T813");
+        ReusableMethods.bekle(2);
+    }
+
+    @And("İslem Kalem Alanina metin girilir - Fizik tedavi ve rehabilitasyon A grubunda yer alan hastaliklar")
+    public void islemKalemAlaninaMetinGirilirFizikTedaviVeRehabilitasyonAGrubundaYerAlanHastaliklar() {
+        provizyonIslemleri.islemKalemAdi_input.sendKeys("Fizik tedavi ve rehabilitasyon A grubunda yer alan hastalıklar");
+        ReusableMethods.bekle(1);
+    }
+
+    @Then("RET mesajinin -Fizik Tedavi talepleriniz icin OTS PLUS uzerinden basvuru yaparak ilerleyiniz.- oldugu gorulur")
+    public void retMesajininFizikTedaviTaleplerinizIcinOTSPLUSUzerindenBasvuruYaparakIlerleyinizOlduguGorulur() {
+        String actualText = ikinciHastane.statuAciklamasi.getText();
+
+        Assert.assertTrue(actualText.contains("Fizik Tedavi talepleriniz için OTS PLUS üzerinden başvuru yaparak ilerleyiniz"));
+        ReusableMethods.bekle(2);
+    }
+
+    @And("Tani Girisi alanina kod girilir- Fiziksel tedavi diger")
+    public void taniGirisiAlaninaKodGirilirFizikselTedaviDiger() {
+        provizyonIslemleri.taniGirisi_input.sendKeys("Z501");
+        ReusableMethods.bekle(2);
+    }
+
+    @And("İslem Kalem Alanina metin girilir - Apendiks, insidental \\(asil ameliyata ek), patolojik inceleme")
+    public void islemKalemAlaninaMetinGirilirApendiksInsidentalAsilAmeliyataEkPatolojikInceleme() {
+        provizyonIslemleri.islemKalemAdi_input.sendKeys("Apendiks, insidental (asıl ameliyata ek), patolojik inceleme");
+        ReusableMethods.bekle(1);
+    }
+
+    @Then("RET mesajinin -Ilgili islem kalemi icin OTS Plus uzerinden basvuru yapmaniz gerekmektedir- oldugu gorulur")
+    public void retMesajininIlgiliIslemKalemiIcinOTSPlusUzerindenBasvuruYapmanizGerekmektedirOlduguGorulur() {
+        String actualText = ikinciHastane.statuAciklamasi.getText();
+
+        Assert.assertTrue(actualText.contains("İlgili işlem kalemi için ''OTS Plus'' üzerinden başvuru yapmanız gerekmektedir"));
+        ReusableMethods.bekle(2);
+    }
+
+    @And("Tani Girisi alanina kod girilir - Kalp hastaliklarinin diger formlari")
+    public void taniGirisiAlaninaKodGirilirKalpHastaliklarininDigerFormlari() {
+        provizyonIslemleri.taniGirisi_input.sendKeys("I3");
+        ReusableMethods.bekle(2);
+    }
+
+    @And("Detayli İslem Kalemi Arama ekranindaki İslem Kalem Adi alanina metin girisi yapilir- \\(SAG KALP KATETERIZASYONU)")
+    public void detayliIslemKalemiAramaEkranindakiIslemKalemAdiAlaninaMetinGirisiYapilirSAGKALPKATETERIZASYONU() {
+        detayliIslemKalemiArama.detayliIslemKalemiArama_islemKalemAdi.sendKeys("SAĞ KALP KATETERİZASYONU");
+    }
+
+    @And("Eklene İslem Kalemi Listesi- Talep Edilen Tutar alani degistirilir")
+    public void ekleneIslemKalemiListesiTalepEdilenTutarAlaniDegistirilir() {
+        ikinciHastane.eklenen_islem_kalemi_listesi_talepEdilenTutar.sendKeys("10001");
+    }
+
+    @Then("Ekrana -Ilgili talep icin Provizyon Merkezi ile gorusulmelidir. Secilen islem kalemi icin provizyon merkezi ile gorusulmelidir.- mesajinin verildigi gorulur")
+    public void ekranaIlgiliTalepIcinProvizyonMerkeziIleGorusulmelidirSecilenIslemKalemiIcinProvizyonMerkeziIleGorusulmelidirMesajininVerildigiGorulur() {
+        String actualText = ikinciHastane.statuAciklamasi.getText();
+
+        Assert.assertTrue(actualText.contains("İlgili talep için Provizyon Merkezi ile görüşülmelidir. Seçilen işlem kalemi için provizyon merkezi ile görüşülmelidir"));
+        ReusableMethods.bekle(2);
+
+    }
 }

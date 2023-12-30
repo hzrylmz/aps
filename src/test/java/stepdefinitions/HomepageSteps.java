@@ -38,7 +38,7 @@ public class HomepageSteps extends TestBase {
 
     @And("Provizyon Numarasi alanina provizyon no girisi yapilir")
     public void provizyonNumarasiAlaninaProvizyonNoGirisiYapilir() {
-        homePage.provizyonNumarasi_input.sendKeys("43643072");
+        homePage.provizyonNumarasi_input.sendKeys("44766403");
         ReusableMethods.bekle(1);
     }
 
@@ -52,7 +52,7 @@ public class HomepageSteps extends TestBase {
     @Then("İlgili provizyonun ekranda listelendigi gorulur")
     public void ilgiliProvizyonunEkrandaListelendigiGorulur() {
         String actual_provizyon = homePage.aramaSonuclari_provizyon.getText();
-        String expected_provizyon = "43643072";
+        String expected_provizyon = "44766403";
 
         Assert.assertEquals(expected_provizyon,actual_provizyon);
     }
@@ -112,7 +112,7 @@ public class HomepageSteps extends TestBase {
     public void sayfaSagAlttakiMiktaraKaydirilir() {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) Driver.getDriver();
         jsExecutor.executeScript("arguments[0].scrollIntoView();", homePage.sagAltMiktar);
-        ReusableMethods.bekle(1);
+        ReusableMethods.bekle(2);
     }
 
     @And("Arama sonuclari - Ekranda ilk listelenen kayit icin -Guncelle- butonuna tiklanir")
